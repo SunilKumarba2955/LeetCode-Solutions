@@ -5,7 +5,8 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def helper(self, root):
+
+    def kthLargestLevelSum(self, root: Optional[TreeNode], k: int) -> int:
         res = []
         stack = [root]
         while stack:
@@ -17,11 +18,8 @@ class Solution:
                     temp.append(i.left)
                 if i.right:
                     temp.append(i.right)
-            res.append(sum)
+            heapq.heappush(res, sum)
+            if len(res)>k:
+                heapq.heappop(res)
             stack = temp
-        return res
-
-    def kthLargestLevelSum(self, root: Optional[TreeNode], k: int) -> int:
-        res = sorted(self.helper(root))
-        print(res)
-        return res[-k] if len(res)>=k else -1
+        return res[0] if len(res)>=k else -1
