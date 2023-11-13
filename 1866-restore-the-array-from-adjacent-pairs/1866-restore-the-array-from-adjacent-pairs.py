@@ -1,17 +1,18 @@
 class Solution:
     def restoreArray(self, pairs: List[List[int]]) -> List[int]:
-        graph = defaultdict(list)
-        for u, v in pairs:
-            graph[u].append(v)
-            graph[v].append(u)
-        res = []
-        for node, neighbors in graph.items():
-            if len(neighbors) == 1:
-                res = [node, neighbors[0]]
+        dic = defaultdict(list)
+        for i,j in pairs:
+            dic[i].append(j)
+            dic[j].append(i)
+        curKey, prevKey = 0,0
+        for i in dic.keys():
+            if len(dic[i])==1:
+                prevKey = i
+                curKey = dic[i][0]
                 break
-        while len(res) < len(pairs) + 1:
-            last, prev = res[-1], res[-2]
-            candidates = graph[last]
-            next_element = candidates[0] if candidates[0] != prev else candidates[1]
-            res.append(next_element)
+        res = [prevKey, curKey]
+        while len(dic[curKey])!=1:
+            nextKey = dic[curKey][0] if dic[curKey][0]!=prevKey else dic[curKey][1]
+            res.append(nextKey)
+            prevKey, curKey = curKey, nextKey
         return res
