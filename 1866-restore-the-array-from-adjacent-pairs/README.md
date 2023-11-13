@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/restore-the-array-from-adjacent-pairs">1866. Restore the Array From Adjacent Pairs</a></h2><h3>Medium</h3><hr><p>There is an integer array <code>nums</code> that consists of <code>n</code> <strong>unique </strong>elements, but you have forgotten it. However, you do remember every pair of adjacent elements in <code>nums</code>.</p>
+<h2><a href="https://leetcode.com/problems/restore-the-array-from-adjacent-pairs">1743. Restore the Array From Adjacent Pairs</a></h2><h3>Medium</h3><hr><p>There is an integer array <code>nums</code> that consists of <code>n</code> <strong>unique </strong>elements, but you have forgotten it. However, you do remember every pair of adjacent elements in <code>nums</code>.</p>
 
 <p>You are given a 2D integer array <code>adjacentPairs</code> of size <code>n - 1</code> where each <code>adjacentPairs[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> indicates that the elements <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code> are adjacent in <code>nums</code>.</p>
 
