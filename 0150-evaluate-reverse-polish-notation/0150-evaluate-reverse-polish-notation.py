@@ -1,5 +1,5 @@
 class Solution:
-    def eval(self, op1, op, op2):
+    def eval(self, op2, op, op1):
         if op=='+':
             return op1+op2
         if op=='-':
@@ -11,11 +11,6 @@ class Solution:
 
     def evalRPN(self, tokens: List[str]) -> int:
         stack = []
-        for i in tokens:
-            if i in ('+', '*', '-', '/'):
-                op2 = stack.pop()
-                op1 = stack.pop()
-                stack.append(self.eval(op1, i, op2))
-            else:
-                stack.append(int(i))
+        op = set(['+', '-', '*', '/'])
+        for i in tokens: stack.append(self.eval(stack.pop(), i, stack.pop()) if i in op else int(i))
         return stack.pop()
